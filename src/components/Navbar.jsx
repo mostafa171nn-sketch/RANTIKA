@@ -6,7 +6,7 @@ export default function Navbar() {
         <div className="enu-top ">
             <div className="brand ">
                 <img src="imgs/logo.jpeg" alt="Logo" className="logo"/>
-                <span className="italianno"> <span className="ran">Ra</span>ntika</span>
+                <span className="italianno"> <span className="italianno ran">Ra</span>ntika</span>
             </div>
         </div>
        
