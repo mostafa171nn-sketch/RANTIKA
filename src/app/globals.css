@@ -618,8 +618,7 @@ font-size: 350%;
   border-radius: 10%;
   padding: 2px;
   font-family:"Italianno", cursive;
-  font-size: larger;
-  font-weight: bold;
+  
 }
 .toppe{
   margin-top: -10% !important;
@@ -643,7 +642,10 @@ bottom: -14px;
   font-weight: 600;
   font-style: normal;
 }
-
+.ran{
+  font-size: larger !important;
+  font-family:"Italianno", cursive;
+}
 
 /* From Uiverse.io by e-coders */ 
 .button-2{
@@ -673,9 +675,11 @@ bottom: -14px;
  color:  #fd94d2;
  font-weight: bold;
  
-
 }
+.brand{
 
+  margin-bottom: 1% !important;
+}
 .button-2 span:last-child {
  color: white;
  display: block;
