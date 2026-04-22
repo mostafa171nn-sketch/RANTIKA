@@ -20,14 +20,14 @@ export default function CheckoutPage() {
     return sum + (isNaN(price) ? 0 : price * item.quantity);
   }, 0);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle checkout logic
     console.log('Checkout data:', formData, 'Cart:', cart, 'Total:', total);
