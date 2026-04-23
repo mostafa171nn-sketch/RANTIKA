@@ -10,11 +10,9 @@ export default function WishlistPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center py-16 px-5 ">
         <div className="text-center">
-          <h1 className="text-6xl font-bold mb-8 font-playfair wish">Your Wishlist</h1>
+          <h3 className="text-7xl font-bold mb-5 font-playfair wish">Your Wishlist is empty</h3>
           <div className="mb-8 wish">
-            <Heart size={64} className="mx-auto text-gray-300" />
           </div>
-          <p className="text-xl text-gray-500 mb-8 wish">Your wishlist is empty</p>
           <a
             href="/products"
             className="inline-block   px-8 py-4 rounded-xl font-bold text-xl transition-all shadow-lg t"

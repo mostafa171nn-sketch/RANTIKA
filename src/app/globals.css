@@ -546,9 +546,13 @@ border: 1px solid #00000027;  }
 
   }
 .wish{
-     margin-top: 14% ;
-      margin-bottom: 8%;
-      font-size: 340% !important;
+    
+      font-size: 300% !important;
+}
+.yourr{
+        margin-bottom: 1% !important;
+        font-size: large !important;
+  margin-top: 8% !important;
 }
 .brand {
   display:flex;
