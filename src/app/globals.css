@@ -306,7 +306,7 @@ hr{
 /* From Uiverse.io by mymiamo */ 
 .menu {
   position: fixed;
-top: 10px;
+top: 20px;
   left: 9%;
   transform: translateX(-50%);
   width: 15%;
@@ -390,22 +390,16 @@ border: 1px solid #00000027;  }
   left: 50%;
     transform: translateX(-50%);
   width: min(520px, calc(100% - 200px));
-
   backdrop-filter: blur(12px) saturate(180%) contrast(200%);
   -webkit-backdrop-filter: blur(12px) saturate(180%) contrast(200%);
-
   background: rgba(245, 0, 155, 0.4);
-
   border: 1px solid var(--glass-border);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-
   padding: 10px;
   border-radius: 99rem;
-
   display: flex;
   justify-content: center;
   gap: 15px;
-
   z-index: 99;
 }
 
@@ -545,6 +539,17 @@ border: 1px solid #00000027;  }
     font-size: large;
   }
 
+  .chek{
+   margin-top: 16%;
+      margin-bottom: 6%;
+      font-size: 370% !important;
+
+  }
+.wish{
+     margin-top: 14% ;
+      margin-bottom: 8%;
+      font-size: 340% !important;
+}
 .brand {
   display:flex;
   flex-direction: column;
@@ -553,16 +558,13 @@ border: 1px solid #00000027;  }
   transform: translateX(-45%);
 gap: 0px;
 }
-.logo{
- 
-  object-fit: contain;
-}
+
 .brand span {
   font-size: 30px;
-  margin-top: 1px;
+  margin-top: 12px;
 }
 .logoo{
- height: 120%;
+ height: 150%;
  width: 105%;
 
 }
@@ -580,6 +582,7 @@ column-gap: 10% !important;
 .brand img{
   width: 0%;
   height:0%;
+  margin-bottom: 5px;
 }
 .menu{
   width: 170px;
@@ -618,7 +621,12 @@ font-size: 350%;
   border-radius: 10%;
   padding: 2px;
   font-family:"Italianno", cursive;
-  
+ margin-bottom:  11px !important;
+ font-size: 122% !important;
+}
+.brand{
+font-size: 200% !important;
+margin-top: -10px !important;
 }
 .toppe{
   margin-top: -10% !important;
@@ -642,10 +650,7 @@ bottom: -14px;
   font-weight: 600;
   font-style: normal;
 }
-.ran{
-  font-size: larger !important;
-  font-family:"Italianno", cursive;
-}
+
 
 /* From Uiverse.io by e-coders */ 
 .button-2{
@@ -677,8 +682,9 @@ bottom: -14px;
  
 }
 .brand{
-
-  margin-bottom: 1% !important;
+  margin-top: -3% ;
+   
+  font-size: 200%;
 }
 .button-2 span:last-child {
  color: white;
@@ -776,6 +782,7 @@ bottom: -14px;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
+
 .t{
   background-color: #fca4ff !important;
   color: #f3f3f3 !important;
@@ -871,4 +878,18 @@ margin-left: 6.5%;
 .copy {
   font-size: 14px;
 margin-bottom: 5px;
+}
+.italianno{
+  font-size:160% ;
+  margin-bottom: 100px ;
+}
+
+.wish{
+  font-size: 440%;
+    margin-top: 40px ;
+
+}
+.our{
+      margin-top: 10px ;
+
 }
