@@ -368,16 +368,9 @@ top: 20px;
 
 
 @media (max-width: 768px) {
-  .menu {
-    position: fixed;
-    width: calc(50% - 16px);
-    top: 30px ;
-    max-width: none;
-   left: 50%;
-    
-  }
+  
 }
-@media (max-width: 768px) {
+@media (max-width: 250px) {
   .a{background-color: #0000001a; 
     font-size: larger;
 font-family: 'Courier New', Courier, monospace;   
@@ -472,12 +465,12 @@ border: 1px solid #00000027;  }
 /* active */
 
 
+ 
 
-
-@media (max-width: 768px) {
+@media (max-width: 25px) {
   .menu-b {
         position: fixed;
-      top: 720px !important;
+      top: 730px !important;
     width: calc(100% - 16px);
     transform: translateX(-50%);
     max-width: none;
@@ -485,7 +478,7 @@ border: 1px solid #00000027;  }
     padding: 20px;
   }
   .wrapper{
-    bottom: 10px !important;
+    bottom: -10px !important;
   }
 }
 .brand{
@@ -539,10 +532,19 @@ border: 1px solid #00000027;  }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
   .button-2 span:first-child {
     bottom: 15px;
     font-size: small;
+  }
+
+  .menu {
+    position: fixed;
+    width: calc(50% - 16px);
+    top: 30px ;
+    max-width: none;
+   left: 50%;
+    
   }
   .button-2:hover span:last-child{
     font-size: large;
