@@ -371,7 +371,7 @@ top: 20px;
   .menu {
     position: fixed;
     width: calc(50% - 16px);
-    top: 10px;
+    top: 30px ;
     max-width: none;
    left: 50%;
     
@@ -386,7 +386,7 @@ border: 1px solid #00000027;  }
 }
 
 .wrapper{
-  bottom: 10px;
+  bottom: 40px;
 }
 .heroo{
   font-size: 440% ;
@@ -394,7 +394,7 @@ border: 1px solid #00000027;  }
 } 
 .menu-b {
   position: fixed;
-  top: 670px;
+  top: 666px;
   left: 50%;
   transform: translateX(-50%);
   width: min(520px, calc(100% - 200px));
@@ -411,6 +411,7 @@ border: 1px solid #00000027;  }
   gap: 15px;
   z-index: 99;
   overflow: visible;
+  
 }
 .activ-shadow {
  background-color: rgba(0, 0, 0, 0.11);
@@ -476,12 +477,15 @@ border: 1px solid #00000027;  }
 @media (max-width: 768px) {
   .menu-b {
         position: fixed;
-      top: 560px;
+      top: 720px !important;
     width: calc(100% - 16px);
     transform: translateX(-50%);
     max-width: none;
    height: 100px !important;
     padding: 20px;
+  }
+  .wrapper{
+    bottom: 10px !important;
   }
 }
 .brand{
