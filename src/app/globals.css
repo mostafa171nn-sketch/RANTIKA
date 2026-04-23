@@ -117,6 +117,7 @@ hr{
   display: flex;
   justify-content: center;
   align-items: center;
+  bottom: 60px;
 }
 
 .text {
@@ -384,12 +385,20 @@ font-weight: bolder;
 border: 1px solid #00000027;  }
 }
 
+.wrapper{
+  bottom: 10px;
+}
+.heroo{
+  font-size: 440% ;
+  align-items: center;
+} 
 .menu-b {
   position: fixed;
-  top: 689px;
+  top: 670px;
   left: 50%;
-    transform: translateX(-50%);
+  transform: translateX(-50%);
   width: min(520px, calc(100% - 200px));
+  height: 90px;
   backdrop-filter: blur(12px) saturate(180%) contrast(200%);
   -webkit-backdrop-filter: blur(12px) saturate(180%) contrast(200%);
   background: rgba(245, 0, 155, 0.4);
@@ -401,8 +410,16 @@ border: 1px solid #00000027;  }
   justify-content: center;
   gap: 15px;
   z-index: 99;
+  overflow: visible;
 }
-
+.activ-shadow {
+ background-color: rgba(0, 0, 0, 0.11);
+  transform: scale(1.10);
+ 
+ }
+.tttt{
+  color: #414141;
+}
 /* overlay glass effect */
 .menu-b::after {
   content: "";
@@ -424,7 +441,6 @@ border: 1px solid #00000027;  }
   display: flex;
   flex-direction: column;
   align-items: center;
-
   flex: 1 1 0;
   min-width: 0;
 
@@ -434,15 +450,11 @@ border: 1px solid #00000027;  }
   padding: 10px 4px;
   border-radius: 999rem;
 
-  -webkit-tap-highlight-color: transparent;
 
   transition: all 0.2s ease;
 }
 
-.menu-b a:hover {
-  background-color: rgba(0, 0, 0, 0.11);
-  transform: scale(1.05);
-}
+
 
 /* icons */
 .menu-b a svg {
@@ -457,26 +469,19 @@ border: 1px solid #00000027;  }
 }
 
 /* active */
-.menu-b a.active {
-  background: rgba(237, 237, 237, 0.6);
-  color: rgb(191, 162, 140);
-}
 
-.menu-b a:active {
-  transform: scale(0.95);
-}
+
+
 
 @media (max-width: 768px) {
   .menu-b {
-    
-
-    position: fixed;
+        position: fixed;
       top: 560px;
     width: calc(100% - 16px);
     transform: translateX(-50%);
     max-width: none;
-   
-    
+   height: 100px !important;
+    padding: 20px;
   }
 }
 .brand{
@@ -573,12 +578,19 @@ gap: 0px;
 
 }
 .logo-2{
-row-gap: 10%;
-column-gap: 10% !important;
+row-gap: 24%;
+column-gap: 5% !important;
 }
+.brand-name{
+   font-family: 'italianno', sans-serif !important;
 
+}
+.footer-logo{
+     font-family: 'italianno', sans-serif !important;
+
+}
 .topp{
-  margin-top: -100%;
+  margin-top: -110%;
   margin-left: 8px;
   width: 90%;
   

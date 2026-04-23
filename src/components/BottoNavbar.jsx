@@ -1,39 +1,76 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
 export default function BottoNavbar() {
+  const pathname = usePathname();
+
+  const items = [
+    { path: "/", label: "Home", icon: "home" },
+    { path: "/products", label: "Products", icon: "box" },
+    { path: "/wishlist", label: "Wishlist", icon: "heart" },
+    { path: "/checkout", label: "Checkout", icon: "cart" },
+  ];
+
   return (
-    <div className="menu-b z-10">
-      <a href="/" className="active">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="size-6 text-black"
-        >
-          <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
-          <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
-        </svg>
-        <span className="text-black">Home</span>
-      </a>
+    <div className="menu-b flex justify-around items-center bg-pink-200 p-3 rounded-full ">
 
-      <a href="/products">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-          <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15a4.483 4.483 0 0 0-3 1.146Z" />
-        </svg>
-        <span>Products</span>
-      </a>
+      {items.map((item) => {
+        const isActive = pathname === item.path;
 
-      <a href="/wishlist">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-          <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.264a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-        </svg>
-        <span>Wishlist</span>
-      </a>
+        return (
+          <Link
+            key={item.path}
+            href={item.path}
+            className="flex flex-col items-center"
+          >
+            <div
+              className={`
+                flex flex-col items-center px-4 py-2 rounded-full
+                transition-all duration-300
+                ${isActive ? "activ-shadow reletive rounded-full px-5 py-5 before:content-[''] before:absolute before:inset-0 before:rounded-full shadow-lg  scale-110  " : ""}
+              `}
+            >
+              {/* ICON */}
+              <span className={isActive ? " tttt" : "text-white"}>
+                {item.icon === "home" && (
+                  <svg className="size-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 5.432 4 13h2v7h4v-4h4v4h4v-7h2z" />
+                  </svg>
+                )}
 
-      <a href="/checkout">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-          <path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3H4.5a2.25 2.25 0 0 0 0 4.5h15a2.25 2.25 0 0 0 0-4.5H10.5a3 3 0 0 1-3-3M6.468 5.64A2.163 2.163 0 0 1 7.829 5a2.25 2.25 0 0 1 2.34 2.085l.19.945M9.828 9.828a.75.75 0 0 1 1.06 1.06l-2.121 2.121a.75.75 0 0 1-1.061-1.06l2.121-2.121zm2.829 0a.75.75 0 0 1 1.06 1.06l-2.121 2.121a.75.75 0 0 1-1.061-1.06l2.121-2.121z" />
-        </svg>
-        <span>Checkout</span>
-      </a>
+                {item.icon === "box" && (
+                  <svg className="size-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 7l9-4 9 4-9 4-9-4zm0 2l9 4 9-4v8l-9 4-9-4V9z" />
+                  </svg>
+                )}
+
+                {item.icon === "heart" && (
+                  <svg className="size-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21s-6-4.35-9-8.28C.5 9.5 2.42 5 6 5c2 0 3 1 4 2 1-1 2-2 4-2 3.58 0 5.5 4.5 3 7.72C18 16.65 12 21 12 21z" />
+                  </svg>
+                )}
+
+                {item.icon === "cart" && (
+                  <svg className="size-6 " fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 6h15l-1.5 9h-13L5 3H2v2h2l3.6 7.59-1.35 2.44C5.52 16.37 6.48 18 8 18h12v-2H8l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03L22 6H6z" />
+                  </svg>
+                )}
+              </span>
+
+              {/* TEXT */}
+              <span
+                className={`text-sm mt-1 ${
+                  isActive ? "tttt" : "text-white"
+                }`}
+              >
+                {item.label}
+              </span>
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }

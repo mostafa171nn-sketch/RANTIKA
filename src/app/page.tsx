@@ -15,9 +15,9 @@ export default function Home() {
     <div className="bg-gradient-to-br from-white to-blush/30 ">
       {/* Hero */}
       <section className="relative z-20 h-screen flex flex-col items-center justify-center text-center p-8 md:p-16 bg-cover bg-center bg-no-repeat overflow-hidden" style={{ backgroundImage: 'url(/imgs/hero-bg.webp)' }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/20 z-10 "></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/20 z-10  "></div>
         <motion.h1
-          className="text-[clamp(2.5rem,8vw,6.5rem)] md:text-[clamp(4rem,12vw,8rem)] font-black leading-none drop-shadow-2xl font-playfair relative z-30"
+          className="heroo text-[clamp(6.6rem,6vw,6.5rem)] md:text-[clamp(6rem,12vw,8rem)] font-black leading-none drop-shadow-2xl font-playfair relative z-30"
           style={{
             background: 'linear-gradient(135deg, #f5d0d6 0%, #ec4899 50%, #db2777 100%)',
             WebkitBackgroundClip: 'text',
