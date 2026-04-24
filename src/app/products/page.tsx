@@ -30,11 +30,11 @@ export default function ProductsPage() {
   const { addToCart } = useCart();
 
   return (
-    <div className="py-16 px-5 max-w-7xl mx-auto relative mt-10">
-      <h1 className="our text-7xl font-bold mb-8 text-center font-playfair wish">
-        Our Products
+    <div className=" py-16 px-5 max-w-7xl mx-auto relative last">
+      <h1 className="from-top box our text-7xl font-bold mb-6 text-center font-playfair wish">
+       Products
       </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ">
         {products.map((product) => (
           <div key={product.id} className="relative bg-white rounded-2xl shadow overflow-hidden">
             {/* Heart Button */}

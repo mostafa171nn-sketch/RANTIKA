@@ -14,7 +14,7 @@ export default function BottoNavbar() {
   ];
 
   return (
-    <div className="menu-b flex justify-around items-center bg-pink-200 p-3 rounded-full ">
+    <div className="box from-bottom menu-b  flex justify-around items-center bg-pink-200 p-3 rounded-full">
 
       {items.map((item) => {
         const isActive = pathname === item.path;

@@ -9,8 +9,8 @@ export default function WishlistPage() {
   if (wishlist.length === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center py-16 px-5 ">
-        <div className="text-center">
-          <h3 className="text-7xl font-bold mb-5 font-playfair wish">Your Wishlist is empty</h3>
+        <div className="text-center  ">
+          <h3 className="text-7xl font-bold mb-5 font-playfair wish"> empty</h3>
           <div className="mb-8 wish">
           </div>
           <a
@@ -26,7 +26,7 @@ export default function WishlistPage() {
 
   return (
     <div className="py-16 px-5 max-w-4xl mx-auto">
-      <h1 className="text-5xl font-bold mb-12 text-center font-playfair wish">Your Wishlist</h1>
+      <h1 className="text-5xl font-bold mb-2 text-center font-playfair wish box from-top">Wish-list</h1>
 
       <div className="space-y-6 mb-12">
         {wishlist.map((product) => (

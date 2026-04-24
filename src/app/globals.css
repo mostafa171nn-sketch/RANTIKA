@@ -387,8 +387,8 @@ border: 1px solid #00000027;  }
 } 
 .menu-b {
   position: fixed;
-  top: 666px;
-  left: 50%;
+  top: 672px;
+  left: 33.5%;
   transform: translateX(-50%);
   width: min(520px, calc(100% - 200px));
   height: 90px;
@@ -404,7 +404,7 @@ border: 1px solid #00000027;  }
   gap: 15px;
   z-index: 99;
   overflow: visible;
-  
+ 
 }
 .activ-shadow {
  background-color: rgba(0, 0, 0, 0.11);
@@ -471,12 +471,16 @@ border: 1px solid #00000027;  }
   .menu-b {
         position: fixed;
       top: 730px !important;
+        left: 33.2%;
     width: calc(100% - 16px);
     transform: translateX(-50%);
     max-width: none;
    height: 100px !important;
     padding: 20px;
+    display: flex;
+    
   }
+  
   .wrapper{
     bottom: -10px !important;
   }
@@ -490,6 +494,7 @@ border: 1px solid #00000027;  }
     border-radius: 100%;
   width: 30% ;
 }
+
 .brand img{
   object-fit: contain;
     border-radius: 100%;
@@ -537,7 +542,10 @@ border: 1px solid #00000027;  }
     bottom: 15px;
     font-size: small;
   }
-
+.box{
+  width: 35px;
+  height: 35px;
+}
   .menu {
     position: fixed;
     width: calc(50% - 16px);
@@ -551,14 +559,16 @@ border: 1px solid #00000027;  }
   }
 
   .chek{
-   margin-top: 16%;
-      margin-bottom: 6%;
-      font-size: 370% !important;
-
+   margin-top: 30%;
+      margin-bottom: 5%;
+      font-size: 360% !important;
+width: 100%;
+height: 100%;
   }
 .wish{
-    
-      font-size: 300% !important;
+    width: 100%;
+    height: 100%;
+      font-size: 440% !important; margin-top: 30% !important;
 }
 .yourr{
         margin-bottom: 1% !important;
@@ -618,6 +628,7 @@ column-gap: 5% !important;
   width: 90%;
   height: 80px;
  top: 87% ;
+ left: 5%;
 }
 .button-text{
  font-size: large;
@@ -628,8 +639,8 @@ gap: 5px !important;
 margin-left: -30%;
 }
 .our{
-  margin-top: 10px;
-  margin-bottom: 40px;
+  margin-top: 28% !important;
+  margin-bottom: 20px;
 font-size: 350%;
 
 }
@@ -649,6 +660,7 @@ font-size: 350%;
 .brand{
 font-size: 200% !important;
 margin-top: -10px !important;
+left: -2px !important;
 }
 .toppe{
   margin-top: -10% !important;
@@ -911,7 +923,52 @@ margin-bottom: 5px;
     margin-top: 40px ;
 
 }
-.our{
-      margin-top: 10px ;
+ 
 
+
+.box {
+  opacity: 0; /* مش ظاهر في البداية */
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; /* يبقى في الحالة الأخيرة بعد التحريك */
+}
+
+/* التحريك من الجوانب المختلفة */
+.from-left { 
+  transform: translateX(-50px);
+  animation-name: slideLeft;
+  animation-delay: 0.2s;
+}
+.from-right { 
+  transform: translateX(50px);
+  animation-name: slideRight;
+  animation-delay: 0.1s;
+}
+.from-bottom { 
+  transform: translatey(50px);
+
+  animation-name: slideUp !important;
+  animation-delay: 0.1s !important;
+}
+.from-top { 
+  transform: translateY(-70px);
+  animation-name: slideDown;
+  animation-delay: 0.2s;
+}
+
+/* Keyframes */
+@keyframes slideLeft {
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideRight {
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideUp {
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideDown {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.our{
+  font-size: 550%;
 }

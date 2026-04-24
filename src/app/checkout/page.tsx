@@ -36,7 +36,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen py-16 px-4 md:px-8 max-w-6xl mx-auto ">
-      <h1 className="chek text-4xl md:text-5xl font-black text-center mt-10  mb-12 font-playfair" style={{
+      <h1 className="chek text-4xl md:text-5xl font-black text-center mt-10  mb-4 font-playfair box from-top" style={{
         fontSize:'552%',
         background: 'linear-gradient(135deg, #f5d0d6 0%, #f7a4ce 50%, #fcaed2 100%)',
         WebkitBackgroundClip: 'text',
