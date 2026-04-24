@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef, ReactNode } from 'react';
 
 export interface Product {
   id: number;
@@ -25,17 +25,11 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [mounted, setMounted] = useState(false);
-
-  // Ensure we're on client side
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [isReady, setIsReady] = useState(false);
+  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load cart from localStorage on mount (client-side only)
   useEffect(() => {
-    if (!mounted) return;
-    
     try {
       const savedCart = localStorage.getItem('luxury-cart');
       if (savedCart) {
@@ -45,58 +39,68 @@ export function CartProvider({ children }: { children: ReactNode }) {
     } catch (e) {
       console.error('Failed to load cart:', e);
     }
-  }, [mounted]);
+    setIsReady(true);
+  }, []);
 
-  // Save cart to localStorage whenever it changes
+  // Debounced save cart to localStorage
   useEffect(() => {
-    if (!mounted) return;
-    
-    try {
-      localStorage.setItem('luxury-cart', JSON.stringify(cart));
-    } catch (e) {
-      console.error('Failed to save cart:', e);
-    }
-  }, [cart, mounted]);
+    if (!isReady) return;
 
-  const addToCart = (product: Product) => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    saveTimeoutRef.current = setTimeout(() => {
+      try {
+        localStorage.setItem('luxury-cart', JSON.stringify(cart));
+      } catch (e) {
+        console.error('Failed to save cart:', e);
+      }
+    }, 300);
+
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [cart, isReady]);
+
+  const addToCart = useCallback((product: Product) => {
     setCart((currentCart) => {
       const existingItem = currentCart.find((item) => item.id === product.id);
       if (existingItem) {
-        // Increase quantity if already exists
         return currentCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      // Add new item with quantity 1
       return [...currentCart, { ...product, quantity: 1 }];
     });
-  };
+  }, []);
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = useCallback((id: number) => {
     setCart((currentCart) => currentCart.filter((item) => item.id !== id));
-  };
+  }, []);
 
-  const updateQuantity = (id: number, quantity: number) => {
-    if (quantity <= 0) {
-      // Don't remove, keep minimum quantity as 1
-      return;
-    }
+  const updateQuantity = useCallback((id: number, quantity: number) => {
+    if (quantity <= 0) return;
     setCart((currentCart) =>
       currentCart.map((item) =>
         item.id === id ? { ...item, quantity } : item
       )
     );
-  };
+  }, []);
 
-  const isInCart = (id: number) => cart.some((p) => p.id === id);
+  const isInCart = useCallback((id: number) => {
+    return cart.some((p) => p.id === id);
+  }, [cart]);
 
-  const value = {
+  const value = useMemo(() => ({
     cart,
     addToCart,
     removeFromCart,
     updateQuantity,
     isInCart
-  };
+  }), [cart, addToCart, removeFromCart, updateQuantity, isInCart]);
 
   return (
     <CartContext.Provider value={value}>

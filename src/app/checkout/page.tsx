@@ -1,10 +1,10 @@
 "use client"
 
+import React, { memo, useMemo, useCallback, useState } from "react";
 import { useCart } from "@/contexts/CartContext";
-import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 
-export default function CheckoutPage() {
+const CheckoutPage = memo(function CheckoutPage() {
   const { cart, removeFromCart, updateQuantity } = useCart();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -298,5 +298,7 @@ export default function CheckoutPage() {
       `}</style>
     </div>
   );
-}
+});
+
+export default CheckoutPage;
 

@@ -1,16 +1,17 @@
 "use client";
 
+import React, { memo, useCallback } from "react";
 import { useWishlist } from "@/contexts/WishlistContext";
-import { Trash2, Heart } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
-export default function WishlistPage() {
+const WishlistPage = memo(function WishlistPage() {
   const { wishlist, removeFromWishlist } = useWishlist();
 
   if (wishlist.length === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center py-16 px-5 ">
         <div className="text-center  ">
-          <h3 className="text-7xl font-bold mb-5 font-playfair wish"> empty</h3>
+          <h3 className="text-7xl font-bold mb-5 font-playfair wish">Empty</h3>
           <div className="mb-8 wish">
           </div>
           <a
@@ -62,4 +63,6 @@ export default function WishlistPage() {
       </div>
     </div>
   );
-}
+});
+
+export default WishlistPage;

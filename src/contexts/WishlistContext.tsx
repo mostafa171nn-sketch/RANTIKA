@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef, ReactNode } from 'react';
 
 export interface Product {
   id: number;
@@ -21,17 +21,11 @@ const WishlistContext = createContext<WishlistContextType | undefined>(undefined
 
 export function WishlistProvider({ children }: { children: ReactNode }) {
   const [wishlist, setWishlist] = useState<Product[]>([]);
-  const [mounted, setMounted] = useState(false);
-
-  // Ensure we're on client side
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [isReady, setIsReady] = useState(false);
+  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Load wishlist from localStorage on mount (client-side only)
   useEffect(() => {
-    if (!mounted) return;
-    
     try {
       const savedWishlist = localStorage.getItem('luxury-wishlist');
       if (savedWishlist) {
@@ -41,56 +35,65 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     } catch (e) {
       console.error('Failed to load wishlist:', e);
     }
-  }, [mounted]);
+    setIsReady(true);
+  }, []);
 
-  // Save wishlist to localStorage whenever it changes
+  // Debounced save wishlist to localStorage
   useEffect(() => {
-    if (!mounted) return;
-    
-    try {
-      localStorage.setItem('luxury-wishlist', JSON.stringify(wishlist));
-    } catch (e) {
-      console.error('Failed to save wishlist:', e);
-    }
-  }, [wishlist, mounted]);
+    if (!isReady) return;
 
-  const addToWishlist = (product: Product) => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    saveTimeoutRef.current = setTimeout(() => {
+      try {
+        localStorage.setItem('luxury-wishlist', JSON.stringify(wishlist));
+      } catch (e) {
+        console.error('Failed to save wishlist:', e);
+      }
+    }, 300);
+
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [wishlist, isReady]);
+
+  const addToWishlist = useCallback((product: Product) => {
     setWishlist((currentWishlist) => {
-      // Prevent duplicates
       if (currentWishlist.find((item) => item.id === product.id)) {
         return currentWishlist;
       }
       return [...currentWishlist, product];
     });
-  };
+  }, []);
 
-  const removeFromWishlist = (id: number) => {
+  const removeFromWishlist = useCallback((id: number) => {
     setWishlist((currentWishlist) => currentWishlist.filter((item) => item.id !== id));
-  };
+  }, []);
 
-  const toggleWishlist = (product: Product) => {
-    console.log('Heart clicked - adding to wishlist:', product.name);
+  const toggleWishlist = useCallback((product: Product) => {
     setWishlist((currentWishlist) => {
-      // Check if product already exists
       if (currentWishlist.find((item) => item.id === product.id)) {
-        console.log('Product already in wishlist');
         return currentWishlist;
       }
-      const newWishlist = [...currentWishlist, product];
-      console.log('Added to wishlist, total items:', newWishlist.length);
-      return newWishlist;
+      return [...currentWishlist, product];
     });
-  };
+  }, []);
 
-  const isInWishlist = (id: number) => wishlist.some((p) => p.id === id);
+  const isInWishlist = useCallback((id: number) => {
+    return wishlist.some((p) => p.id === id);
+  }, [wishlist]);
 
-  const value = {
+  const value = useMemo(() => ({
     wishlist,
     addToWishlist,
     removeFromWishlist,
     toggleWishlist,
     isInWishlist
-  };
+  }), [wishlist, addToWishlist, removeFromWishlist, toggleWishlist, isInWishlist]);
 
   return (
     <WishlistContext.Provider value={value}>
@@ -106,3 +109,4 @@ export function useWishlist() {
   }
   return context;
 }
+
