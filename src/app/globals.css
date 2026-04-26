@@ -366,10 +366,19 @@ top: 20px;
 }
 
 
-@media (max-width: 768px) {
-  
+
+
+@media (max-width:260px) 
+
+
+
+{
+.button-2{
+height: 22px;
+bottom: 14px;
+  margin-left:2% !important;
 }
-@media (max-width: 250px) {
+
   .a{background-color: #0000001a; 
     font-size: larger;
 font-family: 'Courier New', Courier, monospace;   
@@ -464,10 +473,20 @@ border: 1px solid #00000027;  }
 /* active */
 
 
+@media (min-width: 360px) {
+.button-2{
+
+}
+}
  
 
-@media (max-width: 25px) {
-  .menu-b {
+@media (max-width: 600px) {
+.button-2{
+height: 22px;
+bottom: 14px;
+  margin-left:22% !important;
+}
+.menu-b {
         position: fixed;
       top: 730px !important;
         left: 33.2%;
@@ -604,11 +623,11 @@ column-gap: 5% !important;
      font-family: 'italianno', sans-serif !important;
 
 }
-.topp{
+.toppe{
   margin-top: -110%;
-  margin-left: 8px;
-  width: 90%;
-  
+  margin-left: 15px;
+  width: 100%;
+ font-size: 350%;
 }
 .brand img{
   width: 0%;
@@ -644,10 +663,7 @@ font-size: 350%;
 
 }
 
-.button-cosm{
-  width:4.5em;
-  margin-top: 2.0px;
-}
+
 .ran{
   background-color: rgb(247, 246, 243);
   border-radius: 10%;
@@ -662,12 +678,13 @@ margin-top: -10px !important;
 left: -2px !important;
 }
 .toppe{
-  margin-top: -10% !important;
+  margin-top: -5% !important;
+
 }
 .button-2{
 height: 22px;
 bottom: -14px;
-  margin-left: 15% !important;
+  margin-left:20%;
 }
 
 }

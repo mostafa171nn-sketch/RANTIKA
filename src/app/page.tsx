@@ -115,9 +115,9 @@ const Home = memo(function Home() {
       <Marquee />
 
       {/* Collections */}
-      <section className="py-32 px-8 max-w-7xl mx-auto relative toppe">
+      <section className="py-32 px-8 max-w-7xl mx-auto relative ">
         <motion.h2
-          className="topp er text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 font-playfair toppe"
+          className="topp er text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 font-playfair toppe "
           style={sectionTitleStyle}
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,10 +151,10 @@ const Home = memo(function Home() {
                 />
               </div>
 
-              <div className="button-2 rounded-3xl">
+              <div className="button-2 rounded-3xl  ">
                 <Link href="/products">
                   <button>
-                    <span className="text-2">Shop Now</span>
+                    <span className=" text-2">Shop Now</span>
                     <span>Enjoy!</span>
                   </button>
                 </Link>
