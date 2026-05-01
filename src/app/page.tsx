@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Marquee from '@/components/Marquee';
 
 const collections = [
-  { title: 'Wedding Mirrors', icon: '🪞' },
-  { title: 'Engagement Decor', icon: '💍' },
-  { title: 'Bouquets', icon: '💐' },
-  { title: 'Flower Walls', icon: '🌸' },
+  { title: 'Wedding Mirrors', },
+  { title: 'Engagement Decor',  },
+  { title: 'Bouquets',  },
+  { title: 'Flower Walls',  },
 ];
 
 const heroTitleStyle = {
@@ -36,7 +36,7 @@ const Home = memo(function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/40 to-white/20 z-10" />
         <motion.h1
-          className="heroo text-[clamp(6.6rem,6vw,6.5rem)] md:text-[clamp(6rem,12vw,8rem)] font-black leading-none drop-shadow-2xl font-playfair relative z-30"
+          className="heroo text-[clamp(6.6rem,6vw,6.5rem)] md:text-[clamp(6rem,12vw,8rem)]  leading-none drop-shadow-2xl font-playfair relative z-30"
           style={heroTitleStyle}
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ const Home = memo(function Home() {
         </motion.h1>
 
         <motion.p
-          className="mx-auto text-lg md:text-xl lg:text-2xl max-w-2xl md:max-w-4xl md:mb-4 px-4 md:px-8 text-gray-700 font-medium backdrop-blur-sm rounded-3xl p-1 md:p-12 font-inter text-center leading-relaxed relative z-30 mt-6"
+          className="Ultra mx-auto text-lg md:text-xl lg:text-2xl max-w-2xl md:max-w-4xl md:mb-4 px-4 md:px-8 text-gray-700 font-medium backdrop-blur-sm rounded-3xl p-1 md:p-12 font-inter text-center leading-relaxed relative z-30 mt-1"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -115,47 +115,47 @@ const Home = memo(function Home() {
       <Marquee />
 
       {/* Collections */}
-      <section className="py-32 px-8 max-w-7xl mx-auto relative ">
+      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto relative">
         <motion.h2
-          className="topp er text-4xl md:text-6xl lg:text-7xl font-black text-center mb-12 font-playfair toppe "
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-10 md:mb-16 font-playfair"
           style={sectionTitleStyle}
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           Our Collections
         </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 lg:gap-12 logo-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8">
           {collections.map((cat, i) => (
             <motion.div
               key={cat.title}
-              className="logoo relative drop-shadow-xl w-full h-[420px] overflow-hidden rounded-xl bg-white group cursor-pointer transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl border border-white/50 hover:border-blush/60"
-              initial={{ opacity: 0, y: 60 }}
+              className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.7 + i * 0.15 }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+              whileHover={{ y: -8 }}
             >
-              {/* Logo image */}
-              <div className="topp absolute inset-0 flex items-center justify-center z-10 pt-8">
+              {/* Image */}
+              <div className="aspect-[4/3] overflow-hidden bg-gray-100">
                 <img
                   src="/imgs/logo.jpeg"
-                  alt="Logo"
-                  className="w-[100%] h-[50%] object-contain opacity-95 drop-shadow-2xl group-hover:scale-110 transition-all duration-500"
+                  alt={cat.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
-                  width="300"
-                  height="200"
+              
                 />
               </div>
 
-              <div className="button-2 rounded-3xl  ">
+              {/* Text and Button */}
+              <div className="p-3 md:p-4 text-center">
+                <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 font-playfair">{cat.title}</h3>
                 <Link href="/products">
-                  <button>
-                    <span className=" text-2">Shop Now</span>
-                    <span>Enjoy!</span>
+                  <button className="px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm md:text-base font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
+                    Shop Now
                   </button>
                 </Link>
               </div>

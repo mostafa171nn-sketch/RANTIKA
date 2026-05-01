@@ -54,14 +54,14 @@ const BottoNavbar = memo(function BottoNavbar() {
         <Link
           key={item.path}
           href={item.path}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center "
           prefetch={true}
         >
           <div
             className={`
-              flex flex-col items-center px-4 py-2 rounded-full
+              flex flex-col items-center px-2 py-2 rounded-full 
               transition-all duration-300
-              ${isActive ? "activ-shadow reletive rounded-full px-5 py-5 before:content-[''] before:absolute before:inset-0 before:rounded-full shadow-lg scale-110" : ""}
+              ${isActive ? "activ-shadow reletive rounded-full px-3 py-3 p-2 before:content-[''] before:absolute before:inset-0 before:rounded-full shadow-lg scale-140" : ""}
             `}
           >
             <span className={isActive ? "tttt" : "text-white"}>
@@ -77,7 +77,7 @@ const BottoNavbar = memo(function BottoNavbar() {
   }, [pathname]);
 
   return (
-    <div className="box from-bottom menu-b flex justify-around items-center bg-pink-200 p-3 rounded-full">
+    <div className="box from-bottom menu-b flex justify-around items-center bg-pink-200 p-3 rounded-full mt-5">
       {navContent}
     </div>
   );

@@ -26,8 +26,8 @@ const WishlistPage = memo(function WishlistPage() {
   }
 
   return (
-    <div className="py-16 px-5 max-w-4xl mx-auto">
-      <h1 className="text-5xl font-bold mb-2 text-center font-playfair wish box from-top">Wish-list</h1>
+    <div className="py-16 px-5 max-w-4xl mx-auto ">
+      <h2 className="text-5xl font-bold mb-2 text-center font-playfair wish box from-top ">Wish-list</h2>
 
       <div className="space-y-6 mb-12">
         {wishlist.map((product) => (

@@ -4,15 +4,15 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const Footer = memo(function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
+    <footer className="footer ">
+      <div className="footer-content ">
         <h2 className="footer-logo">Rantika🌸</h2>
         <div>
           <p className="footer-text">Elegant flowers &amp; gifts for your special moments</p>
           <h6 className="copy"> © {CURRENT_YEAR} BY.Mostafa Omar | Phone: 01111695090.</h6>
         </div>
 
-        <div className="socials">
+        <div className="socials mr-2">
           <a href="#" className="icon fb" aria-label="Facebook">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
               <path d="M22 12a10 10 0 1 0-11.5 9.87v-6.99H7.9v-2.88h2.6V9.8c0-2.57 1.53-3.99 3.87-3.99 1.12 0 2.3.2 2.3.2v2.52h-1.3c-1.28 0-1.68.8-1.68 1.62v1.95h2.86l-.46 2.88h-2.4v6.99A10 10 0 0 0 22 12z"/>

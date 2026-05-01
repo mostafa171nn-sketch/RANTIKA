@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css'
-import Navbar from "@/components/Navbar";
 import BottoNavbar from '@/components/BottoNavbar';
+import TopNavbar from '@/components/TopNavbar';
 import { CartProvider } from '@/contexts/CartContext';
 import { WishlistProvider } from '@/contexts/WishlistContext';
 import MiniSideCart from '@/components/MiniSideCart';
@@ -46,10 +46,12 @@ export default function RootLayout({
           </defs>
         </svg>
 
-        <CartProvider>
+<CartProvider>
           <WishlistProvider>
+            {/* Top Navbar */}
+            <TopNavbar />
+
             {/* Navbar - rendered once */}
-            <Navbar />
 
             {/* Page Content */}
             <main className="relative">
