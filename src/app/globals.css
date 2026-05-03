@@ -387,7 +387,7 @@ border: 1px solid #00000027;  }
 .menu-b {
   position: fixed;
   top: 645px;
-  left: 33%;
+  left: 32.5%;
   transform: translateX(-50%);
   width: min(520px, calc(100% - 200px));
   height: 90px;
